@@ -236,7 +236,6 @@ function verifyGameOver() {
 
 //#endregion Actions
 
-
 //#region AI
 
 function moveAI() {

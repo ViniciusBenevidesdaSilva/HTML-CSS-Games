@@ -131,9 +131,12 @@ function drawScore() {
 
 function placeFood() {
     do {
-        foodX =  blockSize * Math.floor(Math.random() * cols);
+        foodX = blockSize * Math.floor(Math.random() * cols);
         foodY = blockSize * Math.floor(Math.random() * rows);
-    } while(foodX == snakeX && foodY == snakeY);
+    } while (
+        (foodX === snakeX && foodY === snakeY) ||
+        snakeBody.some(segment => segment[0] === foodX && segment[1] === foodY)
+    );
 }
 
 function changeDirection(e) {
@@ -221,4 +224,3 @@ function verifyGameOver() {
 }
 
 //#endregion Actions
-
