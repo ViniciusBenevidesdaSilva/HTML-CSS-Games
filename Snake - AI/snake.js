@@ -34,8 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     placeFood();
     document.addEventListener("keyup", startGame);
-    document.addEventListener("keyup", changeDirection);
-    
+
     setInterval(update, 1000/10);  // 100ms
 });
 
@@ -145,37 +144,6 @@ function placeFood() {
     );
 }
 
-function changeDirection(e) {
-    if (gameOver) return;
-
-    switch (e.code) {
-        case "ArrowUp":
-            if (velocityY !== 1) {
-                velocityX = 0;
-                velocityY = -1;
-            }
-            break;
-        case "ArrowDown":
-            if (velocityY !== -1) {
-                velocityX = 0;
-                velocityY = 1;
-            }
-            break;
-        case "ArrowLeft":
-            if (velocityX !== 1) {
-                velocityX = -1;
-                velocityY = 0;
-            }
-            break;
-        case "ArrowRight":
-            if (velocityX !== -1) {
-                velocityX = 1;
-                velocityY = 0;
-            }
-            break;
-    }
-}
-
 function moveSnake() {
     //update body postions
     for(let i = snakeBody.length-1; i > 0; i--) {
@@ -281,8 +249,6 @@ function moveAI() {
         }
     }
 }
-
-
 
 function changeDirectionAI() {
     if (gameOver) return;
